@@ -75,6 +75,38 @@ function readURL2(input) {
 	reader.readAsDataURL(input.files[0]);
 	}
 }
+function validate_required(field,alerttxt)
+{
+with (field)
+  {
+  if (value==null||value=="")
+    {alert(alerttxt);return false}
+  else {return true}
+  }
+}
+
+function validate_form(thisform)
+{
+with (thisform)
+  {
+ 	if (validate_required(inputName,"Survey Name must be filled out!")==false)
+    {inputName.focus();return false}
+	if (validate_required(time,"Time Allowed must be filled out!")==false)
+    {time.focus();return false}
+	if (!isNaN(time.value) && time.value>=1000 && time.value<=10000) {
+	} else {
+		alert("Time Allowed must be a number between 1000 and 10000");
+		time.focus();
+		return false;
+	}
+	if (validate_required(inputOp1,"Option1 must be filled out!")==false)
+    {inputOp1.focus();return false}
+	if (validate_required(inputOp2,"Option2 must be filled out!")==false)
+    {inputOp2.focus();return false}
+	if (validate_required(attr1,"attribute1 must be filled out!")==false)
+    {attr1.focus();return false}
+  }
+}
 </script>
 </head>
 
@@ -92,34 +124,42 @@ function readURL2(input) {
     </div>
     
     <div class="container" style="text-align:center;">
-    <h1>Create Survey</h1>
+    <h1>Create Survey</h1><br />
+    <p>All fields with * must be filled.</p>
     </div>
     
     <div class="container" style="width: 600px;">
-    <form class="form-horizontal" method="post" action="test1.php" style="margin-top: 40px; margin-bottom: 90px;" enctype="multipart/form-data">
+    <form class="form-horizontal" method="post" onsubmit="return validate_form(this)" action="test1.php" style="margin-top: 40px; margin-bottom: 90px;" enctype="multipart/form-data">
     <div class="control-group" style="margin-bottom: 30px;">
-    <label class="control-label" for="inputName">Survey Name</label>
+    <label class="control-label" for="inputName">Survey Name *</label>
     <div class="controls">
     <input type="text" name="inputName" id="inputName" placeholder="Survey Name" maxlength="30">
     </div>
     </div>
     
     <div class="control-group">
-    <label class="control-label" for="inputOp1">Option1</label>
+    <label class="control-label" for="time">Time Allowed (ms) *</label>
+    <div class="controls">
+    <input type="text" name="time" id="time" placeholder="choose from 1000 to 10000" maxlength="5">
+    </div>
+    </div>
+    
+    <div class="control-group">
+    <label class="control-label" for="inputOp1">Option1 *</label>
     <div class="controls">
     <input type="text" name="inputOp1" id="inputOp1" placeholder="Option1" maxlength="20">
     </div>
     </div>
     
     <div class="control-group">
-    <label class="control-label" for="inputOp2">Option2</label>
+    <label class="control-label" for="inputOp2">Option2 *</label>
     <div class="controls">
     <input type="text" name="inputOp2" id="inputOp2" placeholder="Option2" maxlength="20">
     </div>
     </div>
     
     <div style="width: 460px; margin-top: 40px; margin-left: 50px;">
-    <p style="text-align: justify; font-size: 18px;">Choose images for option1 and option2. Images should be square.</p>
+    <p style="text-align: justify; font-size: 18px;">Choose images for option1 and option2. Images should be square. *</p>
     <table style="width: 460px; margin-top: 20px;">
     <tr>
     <td style="height: 210px; width: 230px;">
@@ -144,7 +184,7 @@ function readURL2(input) {
     <h4>Attribute List <small> (up to 20 attributes)</small></h4>
     
     <div id="divattr1" class="elementblock">
-    <input class="input-large" name="attr1" type="text" id="attr1"  placeholder="attrbute1" maxlength="20" style="margin-top: 15px; display: inline" />
+    <input class="input-large" name="attr1" type="text" id="attr1"  placeholder="attrbute1" maxlength="20" style="margin-top: 15px; display: inline" /><span class="help-block">* attribute1 must be filled.</span>
     </div>
 	<div id="divattr2" class="elementblock">
     <input class="input-large" name="attr2" type="text" id="attr2"  placeholder="attrbute2" maxlength="20" style="margin-top: 15px; display: inline" />
@@ -222,9 +262,11 @@ function readURL2(input) {
     </div>
     
     </div>
+    
     <div style="width: 460px; margin-top: 40px; margin-left: 50px;">
-	<button class="btn btn-success" type="submit">Submit</button>
-	</div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    </div>
+    
     </form>
     
     </div>
