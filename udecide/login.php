@@ -34,14 +34,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>UDecide</title>
 
-<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-1.8.3.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen"/>
+<link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
 <style type="text/css">
 .logo {
 	float: left;
