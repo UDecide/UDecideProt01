@@ -6,11 +6,6 @@
 </head>
 
 <body>
-<?php $array = explode(",", htmlspecialchars($_POST['feedback'])); ?>
-<?php
-	for ($i = 0; $i < count($array); $i++) {
-		echo $array[$i];
-	}
-?>
+<?php echo $_POST['idfeedback']; echo $_POST['resultsfeedback']; echo $_POST['timesfeedback']; ?>
 </body>
 </html>

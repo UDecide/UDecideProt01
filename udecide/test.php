@@ -6,7 +6,14 @@
 </head>
 
 <body>
-<p class="lead">Username: <?php echo htmlspecialchars($_POST['username']); ?></p>
-<p class="lead">Password: <?php echo htmlspecialchars($_POST['passwd']); ?></p>
+<script type="text/javascript">
+var username="<?php echo $_POST['username']; ?>";
+var passwd="<?php echo $_POST['passwd']; ?>";
+if (username == "fred" && passwd == "123456") {
+	window.location.href="login.php";
+} else {
+	window.location.href="index.html";
+}
+</script>
 </body>
 </html>

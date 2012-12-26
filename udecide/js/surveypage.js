@@ -12,6 +12,7 @@ var results;
 var times;
 var newAmout;
 var ismob;
+var usurvey;
 var btnclick0 = function() {
 	btnclick(0);
 }
@@ -136,16 +137,10 @@ function displayStart2() {
 function displayResult() {
 	document.getElementById('softbtn').className="elementnone";
 	document.getElementById('survey').className="surveynone";
-	var feedbackArray = "";
-	feedbackArray += usurvey.id;
-	for (var i = 0; i < newAmount; i++) {
-		feedbackArray += (', ' + results[i]);
-	}
-	for (var i = 0; i < newAmount; i++) {
-		feedbackArray += (', ' + times[i]);
-	}
 	
-	document.feedbackForm.feedback.value = feedbackArray;
+	document.feedbackForm.idfeedback.value = usurvey.id;
+	document.feedbackForm.resultsfeedback.value = JSON.stringify(results);
+	document.feedbackForm.timesfeedback.value = JSON.stringify(times);
 	document.forms["feedbackForm"].submit();
 	
 	document.getElementById('result').className="container resultblock";
