@@ -1,5 +1,6 @@
 <?php
 require_once 'conn.php';
+@session_start();
 
         $row = $input * 24 - 1;
         $row_no_table = $this->db->select('SELECT COUNT(*) FROM gg_image');
