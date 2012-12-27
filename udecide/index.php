@@ -88,9 +88,9 @@
     </div>
     <!--Survey menu-->
     <div class="signup">
-    <form action="test.php" method="post">
-    <input name="username" type="text" placeholder="User" style="position: relative; top: 65px; left: 50px; display: block;">
-    <input name="passwd" type="password" placeholder="Password" style="position: relative; top: 80px; left: 50px; display: block;">
+    <form action="cLogin.php" method="post">
+    <input name="email" type="text" placeholder="Email" style="position: relative; top: 65px; left: 50px; display: block;">
+    <input name="password" type="password" placeholder="Password" style="position: relative; top: 80px; left: 50px; display: block;">
 	<button type="submit" class="btn btn-large btn-primary" style="position: relative; top: 100px; left: 50px;">Log in</button>
     <button class="btn btn-large btn-primary" type="button" style="position: relative; top: 100px; left: 75px;">Sign up</button>
     </form>
