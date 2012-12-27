@@ -119,7 +119,8 @@
     <a href="create.html"><button class="btn btn-primary" >Create New Survey</button></a>
     <a href="index.html"><button class="btn btn-primary" style="margin-left: 10px;">Log out</button></a>
     </div>
-    <div style="margin-left: 50px;">
+    
+    <div style="width: 870px;">
     <h1 style="margin-top: 20px; margin-bottom: 30px;">Results</h1>
     <div class="divborder4" style="width: 860px;">
     <table class="table" id="disptable" style="width: 800px;">
