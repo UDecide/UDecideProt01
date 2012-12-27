@@ -95,23 +95,22 @@ require_once 'config.php';
             </div>
             <!--Survey menu-->
             <div class="signup">
-                <div class="alert alert-error fade in">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Warning!</strong> Best check yourself, you're not looking too good.
-                </div>
+                  <?php
+                    if (isset($_SESSION['error_login']))
+                        echo  
+                 "<div class=\"alert alert-error fade in\">
+                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>
+                    <strong>Error:</strong> ".$_SESSION['error_login'].
+                 "</div>";
+                 unset($_SESSION['error_login']);
+                
+                  ?>
                 <form action="cLogin.php" method="post" top="10%"  position="absolute">
                     <input name="email" type="text" placeholder="Email" style="position: relative; top: 65px; left: 50px; display: block;">
                     <input name="password" type="password" placeholder="Password" style="position: relative; top: 80px; left: 50px; display: block;">
                     <button type="submit" class="btn btn-large btn-primary" style="position: relative; top: 100px; left: 50px;">Log in</button>
                     <button class="btn btn-large btn-primary" type="button" style="position: relative; top: 100px; left: 75px;">Sign up</button>
                 </form>
-                <div id="alert">
-                    <?php
-                    if (isset($_SESSION['error_login']))
-                        echo $_SESSION['error_login'] . '<br />';
-                    unset($_SESSION['error_login']);
-                    ?>
-                </div>
             </div>
         </div>
 
