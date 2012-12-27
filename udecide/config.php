@@ -6,7 +6,7 @@ define('LIBS','libs/');
 
 define('DB_TYPE','mysql');
 define('DB_HOST','localhost');
-define('DB_NAME','gamimag');
+define('DB_NAME','udecide');
 define('DB_USER','root');
 define('DB_PASS','');
 

@@ -41,17 +41,17 @@
 		"items" => $item
 	)
 ?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>UDecide</title>
 
-<link href="css/bootstrap.css" rel="stylesheet" media="screen"/>
-<link href="css/bootstrap-responsive.css" rel="stylesheet"/>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
 <style type="text/css">
 .logo {
 	float: left;
@@ -86,6 +86,27 @@
 }
 .elementblock {
 	display: block;
+}
+.divborder4 {
+	position: relative;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: 15px;
+	margin-right: 0;
+	margin-bottom: 15px;
+	margin-left: 0;
+	padding-top: 19px;
+	padding-right: 19px;
+	padding-bottom: 2px;
+	padding-left: 19px;
+}
+.selectable {
+}
+.selectable:hover {
+	background-color: #EEF;
 }
 </style>
 <script type="text/javascript">
@@ -320,18 +341,22 @@ function writetable(x) {
     
     </div>
     <div style="width: 500px; height: 500px; display: inline; overflow-y: auto; float: right;">
-    <table id="inditable" style="width: 290px; margin-top: 30px;">
-  	<tr>
+    <div class="divborder4" style="width: 325px;">
+    <table class="table" id="inditable" style="width: 325px;">
+  	<thead><tr>
     <td style="width: 70px;"><p class="lead">No.</p></td>
     <td style="width: 220px;"><p class="lead">Submit Time</p></td>
-  	</tr>
+  	</tr></thead>
+    <tbody id='tablebody'>
+    </tbody>
   	</table>
+    </div>
     
     <script type="text/javascript">
 	obj=<?php echo json_encode($xdata1); ?>;
 	for (var i = 0; i < obj.items.length; i++) {
-		document.getElementById('inditable').innerHTML +=
-		"<tr><td><a style='cursor: pointer;' onclick='writetable(" + i + ");'><p class='lead'><u>" + obj.items[i].id + "</u></p></a></td><td><p class='lead'>" + obj.items[i].date + "</p></td></tr>";
+		document.getElementById('tablebody').innerHTML +=
+		"<tr class='selectable' style='cursor: pointer;' onclick='writetable(" + i + ");'><td><p class='lead' style='color: #0088cc;'>" + obj.items[i].id + "</p></td><td><p class='lead'><i class='icon-chevron-right' style='float: right; margin-top: 10px; margin-right: 0px;'></i>" + obj.items[i].date + "</p></td></tr>";
 	}
 	</script>
 
