@@ -355,20 +355,21 @@ $xdata1 = array(
                                 </div>
 
                                 <script type="text/javascript">
-                                    var obj=<?php echo json_encode($xdata1); ?>;
+                                    var obj=<?php echo json_encode($cresult); ?>;
                                     console.log(obj);
                                     var isEmpty = function(obj) {
-                                        return obj=='';                                             
+                                        return obj.items=='';                                             
                                     }
                                     if (isEmpty(obj)) {
                                         document.getElementById('tablebody').innerHTML +="<tr class='selectable'><td colspan=\"2\"><p class='lead' style='color: #0088cc;text-align: center'>" +"No survey has been created"+ "</p></a></td></tr>";                                          
                                     }
                                     else {
-                                        for (var i = 0; i < obj.length; i++) {
-                                            alert(obj.items[i].date);
+                                        var j=obj.items.length;
+                                        for (var i = 0; i < obj.items.length; i++) {
                                             document.getElementById('tablebody').innerHTML +=
-                                                "<tr class='selectable' style='cursor: pointer;' onclick='writetable(" + i + ");'><td><p class='lead' style='color: #0088cc;'>" + i + "</p></td><td><p class='lead'><i class='icon-chevron-right' style='float: right; margin-top: 10px; margin-right: 0px;'></i>" + obj.items[i].date + "</p></td></tr>";
-                                        }
+                                                "<tr class='selectable' style='cursor: pointer;' onclick='writetable(" + i + ");'><td><p class='lead' style='color: #0088cc;'>" + j + "</p></td><td><p class='lead'><i class='icon-chevron-right' style='float: right; margin-top: 10px; margin-right: 0px;'></i>" + obj.items[i].date + "</p></td></tr>";
+                                        j--;
+                                         }
                                     }
                                 </script>
 

@@ -12,18 +12,19 @@ if (mysqli_num_rows($result) != 0) {
         $data = array('date'=> $row['ud_result_created_time'] ,'results' => $row['ud_result_options'], 'times'=>$row['ud_result_times']);
         $items[] = $data;
     }
-    return true;
 } else {
   $items[]=null;
 }
 
-$query = "SELECT ud_option1type, ud_option2type, ud_attribute FROM ud_survey WHERE ud_surveyid=" . $_GET['id'];
+$querySurvey = "SELECT ud_option1name, ud_option2name, ud_attribute FROM ud_survey WHERE ud_surveyid=" . $_GET['id'];
 
-$result = mysqli_query($conn, $query) or die("Failed Query of " . $query);
+$resultSurvey = mysqli_query($conn, $querySurvey) or die("Failed Query of " . $querySurvey);
 
 $row = mysqli_fetch_assoc($resultSurvey);
 
-$cresult = array('op1name'=> $row['ud_option1name'] ,'op2name' => $row['ud_option2name'], 'attributes'=>$row['ud_attribute'],'items'=>$items);
+$attributes = explode(",", $row['ud_attribute']);
+
+$cresult = array('op1name'=> $row['ud_option1name'] ,'op2name' => $row['ud_option2name'], 'attributes'=>$attributes,'items'=>$items);
 ?>
 
 <?php
