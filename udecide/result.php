@@ -342,6 +342,11 @@ $xdata1 = array(
                                 </table>
 
                             </div>
+                            
+                            <div style="float: right;">
+                                <button id="viewsurvey" class="btn btn-primary" style="margin-right: 10px;">Preview Survey</button>
+                            </div>
+                            
                             <div style="width: 500px; height: 500px; display: inline; overflow-y: auto; float: right;">
                                 <div class="divborder4" style="width: 325px;">
                                     <table class="table" id="inditable" style="width: 325px;">
@@ -355,6 +360,10 @@ $xdata1 = array(
                                 </div>
 
                                 <script type="text/javascript">
+									function previewsurvey() {
+										window.location.href="survey.php?id="+obj.id+"a";
+										}
+										document.getElementById('viewsurvey').onclick = previewsurvey;
                                     var obj=<?php echo json_encode($cresult); ?>;
                                     console.log(obj);
                                     var isEmpty = function(obj) {
