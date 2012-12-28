@@ -15,7 +15,6 @@ if (mysqli_num_rows($result) != 0) {
         $data = array('name'=> $row['ud_surveyname'] ,'id' => $row['ud_surveyid'], 'date'=>$row['ud_survey_created_time'] ,'total' => $rowCount['total']);
         $survey[] = $data;
     }
-    return true;
 } else {
   $survey[]=null;
 }

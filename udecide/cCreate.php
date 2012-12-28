@@ -10,11 +10,8 @@ $queryInsert = "INSERT INTO ud_survey (ud_surveyname, ud_duration, ud_option1nam
     VALUES ('" . $_POST['inputName'] . "','" . $_POST['time'] . "','" . $_POST['inputOp1'] . "','" . $_POST['inputOp2'] . "','" . $type1 . "','" . $type2 . "','" . $attribute . "'," . $attrAmount . "," . $_SESSION['user_id'] . ")";
 mysqli_query($conn, $queryInsert) or die("Failed Query of " . $queryInsert);
 
+mysqli_close($conn);
+
 //TODO:Add preview
 header('Location: dashboard.php');
-?>
-
-<?php
-
-mysqli_close($conn);
 ?>
