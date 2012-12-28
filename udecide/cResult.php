@@ -24,7 +24,7 @@ $row = mysqli_fetch_assoc($resultSurvey);
 
 $attributes = explode(",", $row['ud_attribute']);
 
-$cresult = array('op1name'=> $row['ud_option1name'] ,'op2name' => $row['ud_option2name'], 'attributes'=>$attributes,'items'=>$items);
+$cresult = array('id'=>$_GET['id'],'op1name'=> $row['ud_option1name'] ,'op2name' => $row['ud_option2name'], 'attributes'=>$attributes,'items'=>$items);
 ?>
 
 <?php
