@@ -3,60 +3,25 @@
 require_once 'conn.php';
 require_once 'Auth.php';
 
-$query = "SELECT ud_userid,ud_username FROM ud_user WHERE ud_userid='" . $_SESSION['user_id']."'";
+$query = "SELECT ud_surveyid,ud_surveyname,ud_survey_created_time FROM ud_survey WHERE ud_userid='" . $_SESSION['user_id']."'";
 
 $result = mysqli_query($conn, $query) or die("Failed Query of " . $query);
 
 if (mysqli_num_rows($result) != 0) {
-    $row = mysqli_fetch_row($result);
-    @session_start();
-    $_SESSION['loggedIn'] = true;
-    $_SESSION['user_id'] = $row['ud_userid'];
-    $_SESSION['user_name'] = $row['ud_username'];
-    unset($_SESSION['error_login']);
-    unset($_SESSION['error_register']);
-    header('Location: index.php');
+    while ($row = mysqli_fetch_assoc($result)) {
+        $queryCount = "SELECT COUNT(*) AS total FROM ud_result WHERE ud_surveyid=" . $row["ud_surveyid"];
+        $resultCount = mysqli_query($conn, $queryCount) or die("Failed Query of " . $queryCount);
+        $rowCount = mysqli_fetch_assoc($resultCount);
+        $data = array('name'=> $row['ud_surveyname'] ,'id' => $row['ud_surveyid'], 'date'=>$row['ud_survey_created_time'] ,'total' => $rowCount['total']);
+        $survey[] = $data;
+    }
     return true;
 } else {
-    @session_start();
-    $_SESSION['error_login'] = ERROR_LOGIN;
-    header('Location: index.php');
-    return false;
+  $survey[]=null;
 }
 ?>
 
 <?php
 
 mysqli_close($conn);
-?>
-
-        $row = $input * 24 - 1;
-        $row_no_table = $this->db->select('SELECT COUNT(*) FROM gg_image');
-        $row_no = $row_no_table[0]["COUNT(*)"] - 33;
-        for ($i = 1; $i <= 24; $i++) {
-            $row = $row + 1;
-            if ($row > $row_no) {
-                $id = rand(34, 39);
-            } else {
-                $id_table = $this->db->select('SELECT image_id FROM gg_image ORDER BY image_id DESC LIMIT ' . $row . ',1');
-                $id = $id_table[0]['image_id'];
-            }
-            $comment = $this->db->select('SELECT comment_content,comment_time,user_name FROM gg_comment,gg_user WHERE gg_comment.user_id = gg_user.user_id AND image_id = :image_id', array(':image_id' => $id));
-            //$comment = $this->db->select('SELECT comment_content,comment_time,user_name FROM gg_comment,gg_user WHERE gg_comment.user_id = gg_user.user_id AND image_id = 1');
-            $ext = $this->db->select('SELECT image_path,image_title,image_likes,image_height FROM gg_image WHERE image_id = :image_id', array(':image_id' => $id));
-            $liked = 0;
-            if (isset($_SESSION['user_id'])) {
-                $sth = $this->db->prepare("SELECT * FROM gg_like WHERE user_id= :user_id AND image_id= :image_id");
-                $sth->execute(array(':user_id' => $_SESSION['user_id'], ':image_id' => $id));
-                $count = $sth->rowCount();
-                if ($count != 0) {
-                    $liked = 1;
-                }
-            }
-
-            $data = array('image_id' => $id, 'title' => $ext[0]['image_title'], 'extension' => $ext[0]['image_path'], 'like' => $ext[0]['image_likes'], 'liked' => $liked, 'image_height'=>$ext[0]['image_height'], 'comment' => $comment);
-            $image[] = $data;
-        }
-        echo json_encode($image);
-        
 ?>

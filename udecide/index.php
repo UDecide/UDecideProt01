@@ -1,6 +1,11 @@
 <?php
 require_once 'config.php';
 @session_start();
+
+if (isset($_SESSION["loggedIn"])) {           
+            header('location: dashboard.php');
+            exit;
+        }
 ?>
 
 <!DOCTYPE html>
