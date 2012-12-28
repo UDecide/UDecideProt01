@@ -1,19 +1,19 @@
 <?php
 
-function getType($filename) {
+function imageType($filename) {
     return end(explode(".", $_FILES[$filename]["name"]));
 }
 
 function validatePic($filename) {
     $allowedExts = array("jpg", "jpeg", "gif", "png", "JPG", "JPEG", "GIF", "PNG");
     $extension = end(explode(".", $_FILES[$filename]["name"]));
-    if ((($_FILES["file"]["type"] == "image/gif")
-            || ($_FILES["file"]["type"] == "image/jpg")
-            || ($_FILES["file"]["type"] == "image/png")
-            || ($_FILES["file"]["type"] == "image/jpeg"))
-            && ($_FILES["file"]["size"] < 6200000)
+    if ((($_FILES["$filename"]["type"] == "image/gif")
+            || ($_FILES["$filename"]["type"] == "image/jpg")
+            || ($_FILES["$filename"]["type"] == "image/png")
+            || ($_FILES["$filename"]["type"] == "image/jpeg"))
+            && ($_FILES["$filename"]["size"] < 6200000)
             && in_array($extension, $allowedExts)) {
-        if ($_FILES["file"]["error"] > 0) {
+        if ($_FILES["$filename"]["error"] > 0) {
             echo "Return Code: " . $_FILES[$filename]["error"] . "<br />";
             //give error;
             header('location: create.php');
@@ -52,7 +52,7 @@ function storePic($filename, $extension, $path) {
     } else {      
         save(resize(300, 300, $filename), $path, $_FILES[$filename]["type"]);
         echo "Uploaded Successfully!";
-        echo '<br><a href="http://www.movement12.com/dashboard">Go Back to the dashboard</a>';
+        echo '<br><a href="dashboard.php">Go Back to the dashboard</a>';
         header('location: dashboard.php');
     }
 }

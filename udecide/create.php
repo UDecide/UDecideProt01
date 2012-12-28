@@ -129,7 +129,7 @@ with (thisform)
     </div>
     
     <div class="container" style="width: 600px;">
-    <form class="form-horizontal" method="post" onsubmit="return validate_form(this)" action="test1.php" style="margin-top: 40px; margin-bottom: 90px;" enctype="multipart/form-data">
+    <form class="form-horizontal" method="post" onsubmit="return validate_form(this)" action="cCreate.php" style="margin-top: 40px; margin-bottom: 90px;" enctype="multipart/form-data">
     <div class="control-group" style="margin-bottom: 30px;">
     <label class="control-label" for="inputName">Survey Name *</label>
     <div class="controls">
