@@ -15,9 +15,9 @@ if (isset($_SESSION["loggedIn"])) {
         <title>UDecide</title>
 
         <link href="css/bootstrap.css" rel="stylesheet" media="screen"/>
-        <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap-responsive.css" rel="stylesheet"/>  
         <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
         <style type="text/css">
             .logo {
@@ -114,13 +114,11 @@ if (isset($_SESSION["loggedIn"])) {
                     <input name="email" type="text" placeholder="Email" style="position: relative; top: 65px; left: 50px; display: block;">
                     <input name="password" type="password" placeholder="Password" style="position: relative; top: 80px; left: 50px; display: block;">
                     <button type="submit" class="btn btn-large btn-primary" style="position: relative; top: 100px; left: 50px;">Log in</button>
-                    <button class="btn btn-large btn-primary" type="button" style="position: relative; top: 100px; left: 75px;">Sign up</button>
+                    <a href="signup.php"><button class="btn btn-large btn-primary" type="button" style="position: relative; top: 100px; left: 75px;">Sign up</button></a>
                 </form>
             </div>
         </div>
-
-
-        <script src="js/bootstrap.js"></script>
+        
     </body>
 </html>
 

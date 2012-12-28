@@ -6,8 +6,8 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 <style type="text/css">
 .logo {

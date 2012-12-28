@@ -12,7 +12,7 @@ define('DB_PASS','');
 
 
 define('ERROR_LOGIN','The email or the password is not correct @_@');
-define('ERROR_REGISTER','The email has already been registered >_<');
+define('ERROR_SIGNUP','The email has already been registered >_<');
 
 //The sitewide hashkey, do not change this becasue it is used for passwords!
 //This is for other hash keys..Not sure yet

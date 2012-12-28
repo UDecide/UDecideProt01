@@ -1,3 +1,14 @@
+<?php
+require_once 'config.php';
+@session_start();
+
+if (isset($_SESSION["loggedIn"])) {           
+            header('location: dashboard.php');
+            exit;
+        }
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +17,8 @@
 
 <link href="css/bootstrap.css" rel="stylesheet" media="screen"/>
 <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 <style type="text/css">
 .logo {
@@ -96,17 +107,28 @@ function checkpasswd() {
     <div class="container" style="text-align:center;">
     <h1>New User Setup</h1><br />
     <p>All fields with * must be filled.</p>
+    
+                  <?php
+                    if (isset($_SESSION['error_signup']))
+                        echo  
+                 "<div class=\"alert alert-error fade in\">
+                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>
+                    <strong>Error:</strong> ".$_SESSION['error_signup'].
+                 "</div>";
+                 unset($_SESSION['error_signup']);
+                
+                  ?>
     </div>
     
     <div class="container" style="width: 600px;">
-    <form class="form-horizontal" name="form1" method="post" onsubmit="return validate_form(this)" action="test1.php" style="margin-top: 40px; margin-bottom: 90px;" enctype="multipart/form-data">
+    <form class="form-horizontal" name="form1" method="post" onsubmit="return validate_form(this)" action="cSignup.php" style="margin-top: 40px; margin-bottom: 90px;" enctype="multipart/form-data">
     <div class="control-group">
-    <label class="control-label" for="username">User *</label>
+    <label class="control-label" for="email1">Email *</label>
     <div class="controls">
-    <input type="text" name="username" id="username" placeholder="User Name" maxlength="20">
+    <input type="text" name="email1" id="email1" placeholder="Primary Email" maxlength="30">
     </div>
     </div>
-    
+        
     <div class="control-group">
     <label class="control-label" for="passwd">Password *</label>
     <div class="controls">
@@ -120,14 +142,14 @@ function checkpasswd() {
     <input type="password" name="passwdconfirm" id="passwdconfirm" placeholder="Password" maxlength="20" onchange="checkpasswd();"><span class="help-block elementnone" id="help" style="color: #F00;">Different password, please try again.</span>
     </div>
     </div>
-    
+        
     <div class="control-group">
-    <label class="control-label" for="email1">Primary Email *</label>
+    <label class="control-label" for="username">Username *</label>
     <div class="controls">
-    <input type="text" name="email1" id="email1" placeholder="Primary Email" maxlength="30">
+    <input type="text" name="username" id="username" placeholder="User Name" maxlength="20">
     </div>
     </div>
-    
+        
     <div class="control-group">
     <label class="control-label" for="email2">Secondary Email</label>
     <div class="controls">

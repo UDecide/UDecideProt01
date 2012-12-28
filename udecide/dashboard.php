@@ -40,8 +40,8 @@ $arr = array($id05, $id04, $id03, $id02, $id01);
         <title>UDecide</title>
 
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/jquery-1.8.3.min.js"></script>
+            <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link href="css/bootstrap-responsive.css" rel="stylesheet">
                     <style type="text/css">
@@ -118,7 +118,7 @@ $arr = array($id05, $id04, $id03, $id02, $id01);
 
                         <div class="container">
                             <div style="float: right;">
-                                <?php echo "<p>Hi ".$_SESSION['user_name'] ."</p>";?>
+                                <?php echo "<p>Hi " . $_SESSION['user_name'] . "</p>"; ?>
                                 <a href="create.php"><button class="btn btn-primary" >Create New Survey</button></a>
                                 <a href="cLogout.php"><button class="btn btn-primary" style="margin-left: 10px;">Log out</button></a>
                             </div>
