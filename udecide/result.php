@@ -344,6 +344,7 @@ $xdata1 = array(
                             </div>
 
                             <div style="float: right;">
+                            	<button id="modifybtn" class="btn btn-primary" style="margin-right: 15px;">Modify Survey</button>
                                 <button id="viewsurvey" class="btn btn-primary" style="margin-right: 10px;">Preview Survey</button>
                             </div>
 
@@ -364,6 +365,10 @@ $xdata1 = array(
                                         window.location.href="survey.php?id="+obj.id+"a";
                                     }
                                     document.getElementById('viewsurvey').onclick = previewsurvey;
+									function modifysurvey() {
+										window.location.href="modify.php?id="+obj.id;
+										}
+									document.getElementById('modifybtn').onclick = modifysurvey;
                                     var obj=<?php echo json_encode($cresult); ?>;
                                     console.log(obj);
                                     var isEmpty = function(obj) {
