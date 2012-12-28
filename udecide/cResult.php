@@ -9,7 +9,9 @@ $result = mysqli_query($conn, $query) or die("Failed Query of " . $query);
 
 if (mysqli_num_rows($result) != 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $data = array('date'=> $row['ud_result_created_time'] ,'results' => $row['ud_result_options'], 'times'=>$row['ud_result_times']);
+        $result_options = explode(",", $row['ud_result_options']);
+        $result_times = explode(",", $row['ud_result_times']);
+        $data = array('date'=> $row['ud_result_created_time'] ,'results' =>$result_options , 'times'=>$result_times);
         $items[] = $data;
     }
 } else {
