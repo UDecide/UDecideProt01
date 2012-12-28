@@ -118,9 +118,9 @@ $arr = array($id05, $id04, $id03, $id02, $id01);
 
                         <div class="container">
                             <div style="float: right;">
-                                <?php echo "<p>Hi " . $_SESSION['user_name'] . "</p>"; ?>
-                                <a href="create.php"><button class="btn btn-primary" >Create New Survey</button></a>
-                                <a href="cLogout.php"><button class="btn btn-primary" style="margin-left: 10px;">Log out</button></a>
+                                <div style="display: inline; margin-right: 15px; float: left"><?php echo "<p class='lead'>Hi " . $_SESSION['user_name'] . "</p>"; ?> </div>
+                                <button class="btn btn-primary" style="display: inline; float: left;" onclick="window.location.href='create.php'">Create New Survey</button>
+                                <button class="btn btn-primary" style="margin-left: 10px; display: inline; float: left;" onclick="window.location.href='cLogout.php'">Log out</button>
                             </div>
 
                             <div style="width: 870px;">
