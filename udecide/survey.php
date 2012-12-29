@@ -1,4 +1,5 @@
 <?php
+require_once 'cSurvey.php';
 
 	$attribute1 = array("luxury", "sporty", "comfortable", "secure", "durable", "fashionable", "expensive", "noisy", "strong", "powerful");
 	
@@ -144,11 +145,9 @@
 <body id="bd" onload="initscript();">
 
 	<script type="text/javascript">
-		usurvey=<?php if($_GET['id'] == 1) {
-			echo json_encode($usurvey1);
-		} else {
-			echo json_encode($usurvey2);
-		}?>;
+		usurvey=<?php
+                echo json_encode($SurveyContent);
+		?>;
 	</script>
 
     <div id="head" class="container hidden-tablet hidden-phone" style="background-color: #EEE; margin-bottom: 30px">
@@ -258,17 +257,16 @@
     </div>
     
     <div id="result" class="resultnone">
-    <h1 style="text-align: center; color: #093">Thank you for your participation!</h1>
-    <h3 style="text-align: center; margin-top: 25px;">Presented by <a href="index.html"><u>UDecide</u></a>.</h3>
+    <h1 style="text-align: center; color: #093">Waiting to process...</h1>
 </div>
     
-<form name="feedbackForm" method="post" action="feedback.php" target="aaa">
-	<input type="hidden" name="idfeedback"  />
+<form name="feedbackForm" method="post" action="feedback.php">
+    <input type="hidden" name="idfeedback"  />
     <input type="hidden" name="resultsfeedback" />
     <input type="hidden" name="timesfeedback" />
-    </form>
+</form>
     
-<iframe name="aaa" height="0" width="0" src="about:blank"></iframe>
+<!--<iframe name="aaa" height="100" width="100" src="about:blank"></iframe> -->
     
 </body>
 </html>

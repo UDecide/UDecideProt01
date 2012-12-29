@@ -362,7 +362,7 @@ $xdata1 = array(
 
                                 <script type="text/javascript">
                                     function previewsurvey() {
-                                        window.location.href="survey.php?id="+obj.id+"a";
+                                        window.location.href="survey.php?id="+obj.id+"&preview=true";
                                     }
                                     document.getElementById('viewsurvey').onclick = previewsurvey;
 									function modifysurvey() {
@@ -378,11 +378,11 @@ $xdata1 = array(
                                         document.getElementById('tablebody').innerHTML +="<tr class='selectable'><td colspan=\"2\"><p class='lead' style='color: #0088cc;text-align: center'>" +"No survey has been created"+ "</p></a></td></tr>";                                          
                                     }
                                     else {
-                                        var j=obj.items.length;
+                                        var j=1;
                                         for (var i = 0; i < obj.items.length; i++) {
                                             document.getElementById('tablebody').innerHTML +=
                                                 "<tr class='selectable' style='cursor: pointer;' onclick='writetable(" + i + ");'><td><p class='lead' style='color: #0088cc;'>" + j + "</p></td><td><p class='lead'><i class='icon-chevron-right' style='float: right; margin-top: 10px; margin-right: 0px;'></i>" + obj.items[i].date + "</p></td></tr>";
-                                            j--;
+                                            j++;
                                         }
                                     }
                                 </script>
