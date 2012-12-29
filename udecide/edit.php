@@ -144,7 +144,7 @@ with (thisform)
     </div>
     
     <div class="container" style="text-align:center;">
-    <h1>Modify Survey</h1><br />
+    <h1>Edit Survey</h1><br />
     <p>All fields with * must be filled.</p>
     </div>
     
@@ -286,7 +286,7 @@ with (thisform)
     </div>
     
     <div style="width: 460px; margin-top: 40px; margin-left: 50px;">
-    <button class="btn btn-success" type="submit">Modify</button>
+    <button class="btn btn-success" type="submit">Apply</button>
     <button id="cancel" class="btn btn-success" type="button" style="margin-left: 35px;">Cancel</button>
     </div>
     
@@ -310,10 +310,10 @@ with (thisform)
 		}
 		document.getElementById('attr'+(i+1)).value = obj.attributes[i];
 	}
-	function cancelmodify() {
+	function canceledit() {
 		window.location.href="result.php?id="+obj.id;
 	}
-	document.getElementById("cancel").onclick = cancelmodify;
+	document.getElementById("cancel").onclick = canceledit;
 	</script>
     
     </div>
