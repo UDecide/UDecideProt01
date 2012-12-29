@@ -24,7 +24,8 @@ function validatePic($filename) {
 
 function storePic($filename, $path) {
     if (file_exists($path)) {
-        echo $_FILES[$filename]["name"] . " already exists.";
+        unlink($path);
+        //echo $_FILES[$filename]["name"] . " already exists.";
     } else {
         //save(resize(300, 300, $filename), $path, $_FILES[$filename]["type"]);
         //move_uploaded_file($_FILES[$filename]["tmp_name"], $path);

@@ -6,45 +6,62 @@ require_once 'Auth.php';
 require_once 'cPic.php';
 
 //Validate Pics
-if (isset($_FILE['imgfile1']))
-    echo "no file in 1";
-    //validatePic('imgfile1');
-if (isset($_FILE['imgfile2']))
-    echo "no file in 2";
-    //validatePic('imgfile2');
+if ($_FILES['imgfile1']['name']!='')
+    validatePic('imgfile1');
+if ($_FILES['imgfile2']['name']!='')
+    validatePic('imgfile2');
 
-////Get Pic Type
-//$type1 = imageType('imgfile1');
-//$type2 = imageType('imgfile2');
-//
-//
-////Process Attributes
-//$attrAmount = 0;
-//$attributeList = '';
-//for ($i = 1; $i <= 20; $i++) {
-//    $name = 'attr' . $i;
-//    if (!empty($_POST[$name])) {
-//        $attrAmount++;
-//        $attributeList = $attributeList . $_POST[$name] . ',';
-//    }
-//}
-//$attributes = trim($attributeList, ",");
-//
-////Insert to database
-//$queryInsert = "INSERT INTO ud_survey (ud_surveyname, ud_duration, ud_option1name, ud_option2name, ud_option1type, ud_option2type, ud_attribute, ud_attr_amount, ud_userid) 
-//    VALUES ('" . $_POST['inputName'] . "','" . $_POST['time'] . "','" . $_POST['inputOp1'] . "','" . $_POST['inputOp2'] . "','" . $type1 . "','" . $type2 . "','" . $attributes . "'," . $attrAmount . "," . $_SESSION['user_id'] . ")";
-//mysqli_query($conn, $queryInsert) or die("Failed Query of " . $queryInsert);
-//$newid = mysqli_insert_id($conn);
-//
-//mysqli_close($conn);
-//
-//
-////store Pics
-//$path1 = 'pic/' . $newid . 'a.' . $type1;
-//$path2 = 'pic/' . $newid . 'b.' . $type2;
-//storePic('imgfile1', $path1);
-//storePic('imgfile2', $path2);
-//
-////TODO:Add preview
-//header('Location: dashboard.php');
+//Get Pic Type
+if ($_FILES['imgfile1']['name']!='')
+    $type1 = imageType('imgfile1');
+if ($_FILES['imgfile2']['name']!='')
+    $type2 = imageType('imgfile2');
+
+
+//Process Attributes
+$attrAmount = 0;
+$attributeList = '';
+for ($i = 1; $i <= 20; $i++) {
+    $name = 'attr' . $i;
+    if (!empty($_POST[$name])) {
+        $attrAmount++;
+        $attributeList = $attributeList . $_POST[$name] . ',';
+    }
+}
+$attributes = trim($attributeList, ",");
+
+//UPDATE table_name SET column1=value, column2=value2,... WHERE some_column=some_value
+//Insert to database
+if (($_FILES['imgfile1']['name']!='') && ($_FILES['imgfile2']['name']!='')) {
+    $queryUpdate = "UPDATE ud_survey SET ud_surveyname='" . $_POST['inputName'] . "', ud_duration=" . $_POST['time'] . ", ud_option1name='" . $_POST['inputOp1'] . "', ud_option2name='" . $_POST['inputOp2'] . "', ud_option1type='" . $type1 . "', ud_option2type='" . $type2 . "', ud_attribute='" . $attributes . "', ud_attr_amount=" . $attrAmount . " WHERE ud_surveyid=" . $_POST['surveyid'];
+} else if ($_FILES['imgfile1']['name']!='') {
+    $queryUpdate = "UPDATE ud_survey SET ud_surveyname='" . $_POST['inputName'] . "', ud_duration=" . $_POST['time'] . ", ud_option1name='" . $_POST['inputOp1'] . "', ud_option1type='" . $type1 . "', ud_attribute='" . $attributes . "', ud_attr_amount=" . $attrAmount . " WHERE ud_surveyid=" . $_POST['surveyid'];
+} else if ($_FILES['imgfile2']['name']!='') {
+    $queryUpdate = "UPDATE ud_survey SET ud_surveyname='" . $_POST['inputName'] . "', ud_duration=" . $_POST['time'] . ", ud_option2name='" . $_POST['inputOp2'] . "', ud_option2type='" . $type2 . "', ud_attribute='" . $attributes . "', ud_attr_amount=" . $attrAmount . " WHERE ud_surveyid=" . $_POST['surveyid'];
+} else {
+    $queryUpdate = "UPDATE ud_survey SET ud_surveyname='" . $_POST['inputName'] . "', ud_duration=" . $_POST['time'] . ", ud_attribute='" . $attributes . "', ud_attr_amount=" . $attrAmount . " WHERE ud_surveyid=" . $_POST['surveyid'];
+}
+mysqli_query($conn, $queryUpdate) or die("Failed Query of " . $queryUpdate);
+
+mysqli_close($conn);
+
+
+//store Pics
+if (($_FILES['imgfile1']['name']!='') && ($_FILES['imgfile2']['name']!='')) {
+    
+    $path1 = 'pic/' . $_POST['surveyid'] . 'a.' . $type1;
+    $path2 = 'pic/' . $_POST['surveyid'] . 'b.' . $type2;
+    storePic('imgfile1', $path1);
+    storePic('imgfile2', $path2);
+} else if ($_FILES['imgfile1']['name']!='') {
+    $path1 = 'pic/' . $_POST['surveyid'] . 'a.' . $type1;
+    storePic('imgfile1', $path1);
+} else if ($_FILES['imgfile2']['name']!='') {
+    $path2 = 'pic/' . $_POST['surveyid'] . 'b.' . $type2;
+    storePic('imgfile2', $path2);
+}
+
+
+//TODO:Add preview
+header('Location: dashboard.php');
 ?>
