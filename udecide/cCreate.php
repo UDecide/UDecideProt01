@@ -18,11 +18,11 @@ $type2=imageType('imgfile2');
 $attrAmount=0;
 $attributeList='';
 for ($i=1;$i<=20;$i++) {
-    $name='attr'+$i;
-    if (isset($_POST[$name]))
+    $name='attr'.$i;
+    if (!empty($_POST[$name]))
     {
       $attrAmount++;
-      $attributeList=$attributeList+$_POST[$name]+',';
+      $attributeList=$attributeList.$_POST[$name].',';
     } 
 }
 $attributes = trim($attributeList, ",");  
