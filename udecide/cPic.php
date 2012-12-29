@@ -22,35 +22,48 @@ function validatePic($filename) {
     }
 }
 
-function resize($width, $height,$filename) {
-    $new_image = imagecreatetruecolor($width, $height);
-    imagecopyresampled($new_image, $_FILES[$filename], 0, 0, 0, 0, $width, $height, imagesx($_FILES[$filename]), imagesy($_FILES[$filename]));
-    return $new_image;
-}
-
-
-function save($image, $filename, $image_type, $compression = 75, $permissions = null) {
-        if ($image_type == 'image/jpeg') {
-            imagejpeg($image, $filename, $compression);
-        } elseif ($image_type == 'image/gif') {
-
-            imagegif($image, $filename);
-        } elseif ($image_type == 'image/png') {
-
-            imagepng($image, $filename);
-        }
-        if ($permissions != null) {
-
-            chmod($filename, $permissions);
-        }
-    }
-
-
-function storePic($filename, $extension, $path) {
+function storePic($filename, $path) {
     if (file_exists($path)) {
         echo $_FILES[$filename]["name"] . " already exists.";
-    } else {      
-        save(resize(300, 300, $filename), $path, $_FILES[$filename]["type"]);
+    } else {
+        //save(resize(300, 300, $filename), $path, $_FILES[$filename]["type"]);
+        //move_uploaded_file($_FILES[$filename]["tmp_name"], $path);
+
+        $images = $_FILES[$filename]["tmp_name"];
+//        $new_images = "thumbnails_".$_FILES[$filename]["name"];
+//        copy($_FILES,"Photos/".$_FILES[$filename]["name"]);
+//        $width=500; //*** Fix Width & Heigh (Autu caculate) ***//
+//        $size=GetimageSize($images);
+//        $height=round($width*$size[1]/$size[0]);
+        $width = 300;
+        $height = 300;
+
+        if ($_FILES[$filename]["type"] == 'image/jpeg') {
+            $images_orig = ImageCreateFromJPEG($images);
+            $photoX = ImagesX($images_orig);
+            $photoY = ImagesY($images_orig);
+            $images_fin = ImageCreateTrueColor($width, $height);
+            ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width, $height, $photoX, $photoY);
+            ImageJPEG($images_fin, $path);
+        } elseif ($_FILES[$filename]["type"] == 'image/gif') {
+            $images_orig = ImageCreateFromGIF($images);
+            $photoX = ImagesX($images_orig);
+            $photoY = ImagesY($images_orig);
+            $images_fin = ImageCreateTrueColor($width, $height);
+            ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width, $height, $photoX, $photoY);
+            imageGIF($images_fin, $path);
+        } elseif ($_FILES[$filename]["type"] == 'image/png') {
+            $images_orig = ImageCreateFromPNG($images);
+            $photoX = ImagesX($images_orig);
+            $photoY = ImagesY($images_orig);
+            $images_fin = ImageCreateTrueColor($width, $height);
+            ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width, $height, $photoX, $photoY);
+            imagePNG($images_fin, $path);
+        }
+
+        ImageDestroy($images_orig);
+        ImageDestroy($images_fin);
+
         echo "Uploaded Successfully!";
         echo '<br><a href="dashboard.php">Go Back to the dashboard</a>';
         header('location: dashboard.php');

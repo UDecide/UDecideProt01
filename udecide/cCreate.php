@@ -37,10 +37,10 @@ mysqli_close($conn);
 
 
 //store Pics
-$path1 = 'pic/' . $newid . 'a.' . $extension;
-$path2 = 'pic/' . $newid . 'b.' . $extension;
-storePic('imgfile1', $type1, $path1);
-storePic('imgfile2', $type2, $path2);
+$path1 = 'pic/' . $newid . 'a.' . $type1;
+$path2 = 'pic/' . $newid . 'b.' . $type2;
+storePic('imgfile1', $path1);
+storePic('imgfile2', $path2);
 
 //TODO:Add preview
 header('Location: dashboard.php');
