@@ -2,24 +2,49 @@
 
 @session_start();
 require_once 'conn.php';
+require_once 'Auth.php';
+require_once 'cPic.php';
 
-$query = "SELECT ud_userid,ud_username FROM ud_user WHERE ud_email='" . $_POST['email'] . "' AND ud_password='" . $_POST['password'] . "'";
+//Validate Pics
+if (isset($_FILE['imgfile1']))
+    echo "no file in 1";
+    //validatePic('imgfile1');
+if (isset($_FILE['imgfile2']))
+    echo "no file in 2";
+    //validatePic('imgfile2');
 
-$result = mysqli_query($conn, $query) or die("Failed Query of " . $query);
-
-mysqli_close($conn);
-
-if (mysqli_num_rows($result) != 0) {
-    $row = mysqli_fetch_assoc($result);
-    $_SESSION['loggedIn'] = true;
-    $_SESSION['user_id'] = $row['ud_userid'];
-    $_SESSION['user_name'] = $row['ud_username'];
-    unset($_SESSION['error_login']);
-    unset($_SESSION['error_register']);
-    header('Location: index.php');
-} else {
-    @session_start();
-    $_SESSION['error_login'] = ERROR_LOGIN;
-    header('Location: index.php');
-}
+////Get Pic Type
+//$type1 = imageType('imgfile1');
+//$type2 = imageType('imgfile2');
+//
+//
+////Process Attributes
+//$attrAmount = 0;
+//$attributeList = '';
+//for ($i = 1; $i <= 20; $i++) {
+//    $name = 'attr' . $i;
+//    if (!empty($_POST[$name])) {
+//        $attrAmount++;
+//        $attributeList = $attributeList . $_POST[$name] . ',';
+//    }
+//}
+//$attributes = trim($attributeList, ",");
+//
+////Insert to database
+//$queryInsert = "INSERT INTO ud_survey (ud_surveyname, ud_duration, ud_option1name, ud_option2name, ud_option1type, ud_option2type, ud_attribute, ud_attr_amount, ud_userid) 
+//    VALUES ('" . $_POST['inputName'] . "','" . $_POST['time'] . "','" . $_POST['inputOp1'] . "','" . $_POST['inputOp2'] . "','" . $type1 . "','" . $type2 . "','" . $attributes . "'," . $attrAmount . "," . $_SESSION['user_id'] . ")";
+//mysqli_query($conn, $queryInsert) or die("Failed Query of " . $queryInsert);
+//$newid = mysqli_insert_id($conn);
+//
+//mysqli_close($conn);
+//
+//
+////store Pics
+//$path1 = 'pic/' . $newid . 'a.' . $type1;
+//$path2 = 'pic/' . $newid . 'b.' . $type2;
+//storePic('imgfile1', $path1);
+//storePic('imgfile2', $path2);
+//
+////TODO:Add preview
+//header('Location: dashboard.php');
 ?>
