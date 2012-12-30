@@ -1,12 +1,15 @@
 <?php
 
 function imageType($filename) {
-    return end(explode(".", $_FILES[$filename]["name"]));
+    $array = explode(".", $_FILES[$filename]["name"]);
+    $extension = end($array);
+    return $extension;
 }
 
 function validatePic($filename) {
     $allowedExts = array("jpg", "jpeg", "gif", "png", "JPG", "JPEG", "GIF", "PNG");
-    $extension = end(explode(".", $_FILES[$filename]["name"]));
+    $array = explode(".", $_FILES[$filename]["name"]);
+    $extension = end($array);
     if ((($_FILES["$filename"]["type"] == "image/gif")
             || ($_FILES["$filename"]["type"] == "image/jpg")
             || ($_FILES["$filename"]["type"] == "image/png")
@@ -65,9 +68,8 @@ function storePic($filename, $path) {
     ImageDestroy($images_orig);
     ImageDestroy($images_fin);
 
-    echo "Uploaded Successfully!";
-    echo '<br><a href="dashboard.php">Go Back to the dashboard</a>';
-    header('location: dashboard.php');
+    //echo "Uploaded Successfully!";
+    //echo '<br><a href="dashboard.php">Go Back to the dashboard</a>';
 }
 
 ?>
