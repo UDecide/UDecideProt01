@@ -13,6 +13,7 @@ var times;
 var newAmout;
 var ismob;
 var usurvey;
+var preview;
 var btnclick0 = function() {
 	btnclick(0);
 }
@@ -138,7 +139,7 @@ function displayResult() {
 	document.getElementById('softbtn').className="elementnone";
 	document.getElementById('survey').className="surveynone";
 	
-	if (isset($_GET['preview']) && $_GET['preview']=='true') {
+	if (preview) {
 		document.getElementById('presult').className="container elementblock";
 	} else {
 		document.feedbackForm.idfeedback.value = usurvey.id;
@@ -307,4 +308,5 @@ function detectmob() {
  	else {
 		return false;
 	}
+
 }

@@ -148,6 +148,9 @@ require_once 'cSurvey.php';
 		usurvey=<?php
                 echo json_encode($SurveyContent);
 		?>;
+		preview=<?php
+				echo (isset($_GET['preview']) && $_GET['preview']=='true');
+		?>;
 	</script>
 
     <div id="head" class="container hidden-tablet hidden-phone" style="background-color: #EEE; margin-bottom: 30px">
@@ -180,7 +183,7 @@ require_once 'cSurvey.php';
     </td>
     </tr>
     <tr>
-    <td style="width: 500px;";>
+    <td style="width: 500px;">
     <div style="width: 210px; margin-left: auto; margin-right: auto;">
     <button class="btn btn-large btn-success" type="button" style="width: 210px; display: inline;" onclick="startPrac0();">Start</button>
     </div>
