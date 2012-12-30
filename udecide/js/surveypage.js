@@ -139,7 +139,7 @@ function displayResult() {
 	document.getElementById('softbtn').className="elementnone";
 	document.getElementById('survey').className="surveynone";
 	
-	if (preview) {
+	if (preview == true) {
 		document.getElementById('presult').className="container elementblock";
 	} else {
 		document.feedbackForm.idfeedback.value = usurvey.id;
@@ -308,5 +308,4 @@ function detectmob() {
  	else {
 		return false;
 	}
-
 }

@@ -149,7 +149,7 @@ require_once 'cSurvey.php';
                 echo json_encode($SurveyContent);
 		?>;
 		preview=<?php
-				echo (isset($_GET['preview']) && $_GET['preview']=='true');
+				echo $previewstr;
 		?>;
 	</script>
 
