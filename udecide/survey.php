@@ -176,7 +176,7 @@ require_once 'cSurvey.php';
     </tr>
 	<tr>
     <td style="width: 500px;">
-    <p class="lead" style="text-align: justify;">The following practice involving <strong>20</strong> excercies. Press 'E' for left picture <strong id="start1op1">(Audi)</strong>, press 'I' for right picture <strong id="start1op2">(BMW)</strong>. Finish every exercise in <strong id="time1">2</strong> seconds.</p>
+    <p class="lead" style="text-align: justify;">The following practice involving <strong>20</strong> excercies. Press 'E' for left picture <strong id="start1op1"></strong>, press 'I' for right picture <strong id="start1op2"></strong>. Finish every exercise in <strong id="time1"></strong> seconds.</p>
     </td>
     </tr>
     <tr>
