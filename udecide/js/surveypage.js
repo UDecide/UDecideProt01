@@ -14,6 +14,7 @@ var newAmout;
 var ismob;
 var usurvey;
 var preview;
+var imgpre;
 var btnclick0 = function() {
 	btnclick(0);
 }
@@ -103,6 +104,9 @@ function one() {
 
 function initscript() {
 	ismob=detectmob();
+	imgpre = new Image();
+	imgpre.src = usurvey.pic1url;
+	imgpre.src = usurvey.pic2url;
 	document.start1logo1.src=usurvey.pic1url;
 	document.start1logo2.src=usurvey.pic2url;
 	document.getElementById('start1op1').innerHTML=usurvey.op1name;
