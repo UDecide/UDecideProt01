@@ -19,7 +19,7 @@ require_once 'cFeedback.php';
 <body>
     <div id="head" class="container hidden-tablet hidden-phone" style="background-color: #EEE; margin-bottom: 30px">
     <!--Side bar-->
-    <a href="index.html"><img src="img/udecide_logo6.png" class="logo"/></a>
+    <a href="index.php"><img src="img/udecide_logo6.png" class="logo"/></a>
     <!--Survey menu-->
     </div>
     <div id="result" class="resultnone">

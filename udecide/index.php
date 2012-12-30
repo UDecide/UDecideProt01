@@ -81,13 +81,13 @@ if (isset($_SESSION["loggedIn"])) {
 
         <div class="container" style="background-color: #EEE; width: 1160px;">
             <!--Side bar-->
-            <a href="index.html"><img src="img/udecide_logo6.png" class="logo"/></a>
+            <a href="index.php"><img src="img/udecide_logo6.png" class="logo"/></a>
             <!--Survey menu-->
             <ul class="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="examples.html">Examples</a></li>
-                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="services.php">Services</a></li>
+                <li><a href="examples.php">Examples</a></li>
+                <li><a href="contact.php">Contact us</a></li>
             </ul>
         </div>
         <div class="container" style="width: 1160px;">

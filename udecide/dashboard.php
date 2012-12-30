@@ -106,13 +106,13 @@ $arr = array($id05, $id04, $id03, $id02, $id01);
                     <body>
                         <div class="container" style="background-color: #EEE; margin-bottom: 5px">
                             <!--Side bar-->
-                            <a href="login.php"><img src="img/udecide_logo6.png" class="logo"/></a>
+                            <a href="index.php"><img src="img/udecide_logo6.png" class="logo"/></a>
                             <!--Survey menu-->
                             <ul class="nav hidden-tablet hidden-phone">
-                                <li><a href="login.php">Home</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="examples.html">Examples</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="services.php">Services</a></li>
+                                <li><a href="examples.php">Examples</a></li>
+                                <li><a href="contact.php">Contact us</a></li>
                             </ul>
                         </div>
 
