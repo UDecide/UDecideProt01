@@ -50,5 +50,8 @@
             <li><a href="contact.php">Contact us</a></li>
     </ul>
     </div>
+    <div class="container">
+            <h2>The services information goes here. </h2>
+    </div>
 </body>
 </html>
