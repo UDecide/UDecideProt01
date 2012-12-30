@@ -264,7 +264,7 @@ require_once 'cSurvey.php';
 </div>
 
 	<div id="presult" class="elementnone">
-    <h1 style="text-align: center; color: #093">Thank you for your participation!</h1>
+    <h1 style="text-align: center; color: #093">Preview Finished.</h1>
     <h3 style="text-align: center; margin-top: 25px;">Presented by <a href="index.php"><u>UDecide</u></a>.</h3>
     </div>
     
