@@ -2,7 +2,13 @@
 @session_start();
 require_once 'conn.php';
 
-//if (isset($_GET['preview']) && $_GET['preview']=='true')
+$previewstr = '';
+
+if (isset($_GET['preview']) && $_GET['preview']==true) {
+	$previewstr = 'true';
+} else {
+	$previewstr = 'false';
+}
 
 $query = "SELECT ud_option1name, ud_option2name, ud_option1type, ud_option2type, ud_attribute, ud_attr_amount, ud_duration FROM ud_survey WHERE ud_surveyid=" . $_GET['id'];
 
