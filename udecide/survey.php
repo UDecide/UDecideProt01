@@ -259,6 +259,11 @@ require_once 'cSurvey.php';
     <div id="result" class="resultnone">
     <h1 style="text-align: center; color: #093">Waiting to process...</h1>
 </div>
+
+	<div id="presult" class="elementnone">
+    <h1 style="text-align: center; color: #093">Thank you for your participation!</h1>
+    <h3 style="text-align: center; margin-top: 25px;">Presented by <a href="index.php"><u>UDecide</u></a>.</h3>
+    </div>
     
 <form name="feedbackForm" method="post" action="feedback.php">
     <input type="hidden" name="idfeedback"  />
