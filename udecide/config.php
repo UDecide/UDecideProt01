@@ -15,11 +15,11 @@ if ($string == false) {
 $creds = json_decode($string, true);
 
 # now use the $creds array to configure your app e.g.:
-define('DB_TYPE', $MYSQL_HOSTNAME = $creds['MYSQLS']['MYSQLS_DATABASE']);
-define('DB_HOST', $MYSQL_HOSTNAME = $creds['MYSQLS']['MYSQLS_HOSTNAME']);
-define('DB_NAME', $MYSQL_HOSTNAME = 'udecide');
-define('DB_USER', $MYSQL_HOSTNAME = $creds['MYSQLS']['MYSQLS_USERNAME']);
-define('DB_PASS', $MYSQL_HOSTNAME = $creds['MYSQLS']['MYSQLS_PASSWORD']);
+define('DB_TYPE', 'mysql');
+define('DB_HOST', $creds['MYSQLS']['MYSQLS_HOSTNAME']);
+define('DB_NAME', $creds['MYSQLS']['MYSQLS_DATABASE']);
+define('DB_USER', $creds['MYSQLS']['MYSQLS_USERNAME']);
+define('DB_PASS', $creds['MYSQLS']['MYSQLS_PASSWORD']);
 
 
 define('ERROR_LOGIN','The email or the password is not correct @_@');
