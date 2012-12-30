@@ -222,7 +222,7 @@ $xdata = array(
                         <img id="addbtn4" src="img/addbtn.png" style="margin-top: 15px; margin-left: 10px;" onclick="appendAttrInput(4);" />
                     </div>
                     <div id="divattr5" class="elementnone">
-                        <input class="input-large" name="attr4" type="text" id="attr5"  placeholder="attrbute5" maxlength="20" style="margin-top: 15px; display: inline" />
+                        <input class="input-large" name="attr5" type="text" id="attr5"  placeholder="attrbute5" maxlength="20" style="margin-top: 15px; display: inline" />
                         <img id="addbtn5" src="img/addbtn.png" style="margin-top: 15px; margin-left: 10px;" onclick="appendAttrInput(5);" />
                     </div>
                     <div id="divattr6" class="elementnone">
