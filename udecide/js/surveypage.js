@@ -138,17 +138,15 @@ function displayResult() {
 	document.getElementById('softbtn').className="elementnone";
 	document.getElementById('survey').className="surveynone";
 	
-	document.feedbackForm.idfeedback.value = usurvey.id;
-	document.feedbackForm.resultsfeedback.value = JSON.stringify(results);
-	document.feedbackForm.timesfeedback.value = JSON.stringify(times);
-	document.forms["feedbackForm"].submit();
+	if (isset($_GET['preview']) && $_GET['preview']=='true') {
+		document.getElementById('presult').className="container elementblock";
+	} else {
+		document.feedbackForm.idfeedback.value = usurvey.id;
+		document.feedbackForm.resultsfeedback.value = JSON.stringify(results);
+		document.feedbackForm.timesfeedback.value = JSON.stringify(times);
+		document.forms["feedbackForm"].submit();
 	
-	document.getElementById('result').className="container resultblock";
-	for (var i = 0; i < newAmount; i++) {
-		document.getElementById("txt1").innerHTML += (results[i] + ' ');
-	}
-	for (var i = 0; i < newAmount; i++) {
-		document.getElementById("txt1").innerHTML += (times[i] + ' ');
+		document.getElementById('result').className="container resultblock";
 	}
 }
 
