@@ -3,7 +3,7 @@
 require_once 'conn.php';
 require_once 'Auth.php';
 
-$query = "SELECT ud_result_options, ud_result_times, ud_result_created_time FROM ud_result WHERE ud_surveyid=" . $_GET['id'];
+$query = "SELECT ud_result_options, ud_result_times, ud_result_created_time FROM ud_result WHERE ud_surveyid=" . $_GET['id']. " ORDER BY ud_result_created_time DESC";
 
 $result = mysqli_query($conn, $query) or die("Failed Query of " . $query);
 
