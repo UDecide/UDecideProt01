@@ -85,7 +85,7 @@
     	<img src="img/audi-logo.png" class="surveylogo" /><img src="img/bmw-logo.png" class="surveylogo"  />
         <div class="surveydes">
         <p class="lead">Survey: Luxury Car Brands</p>
-        <p>Author: Samual</p>
+        <p>Author: Samuel</p>
         <p>Posted on: 22 Dec 2012</p>
         </div>
     </div></a>
@@ -95,7 +95,7 @@
     	<img src="img/apple-logo.png" class="surveylogo" /><img src="img/samsung-logo.png" class="surveylogo"  />
         <div class="surveydes">
         <p class="lead">Survey: Smart Phone Brands</p>
-        <p>Author: Samual</p>
+        <p>Author: Samuel</p>
         <p>Posted on: 22 Dec 2012</p>
         </div>
     </div></a>
