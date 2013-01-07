@@ -8,6 +8,7 @@
 <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/picup.2.1.1.js"></script>
 
 <style type="text/css">
 .logo {
@@ -47,6 +48,9 @@
 </style>
 
 <script type="text/javascript">
+	var isIphone = navigator.userAgent.indexOf('iPhone') != -1;
+	var isIpad = navigator.userAgent.indexOf('iPad') != -1;
+	var isIOS = isIphone || isIpad;
 function appendAttrInput(number) {
 	var thisbtn="addbtn"+number;
 	var nextdiv="divattr"+(number+1);
