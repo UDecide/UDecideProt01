@@ -38,6 +38,7 @@ function startPrac0() {
 		document.getElementById('btn1').ontouchend=btnclick0;
 		document.getElementById('btn2').ontouchend=btnclick1;
 	} else {
+		document.getElementById('keypic').className="";
 		document.getElementById('bd').onkeypress=pracPressed;
 	}
 	pracSeq = new Array(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1);
@@ -60,6 +61,7 @@ function startSurvey0() {
 		document.getElementById('btn1').ontouchend = surveyclick0;
 		document.getElementById('btn2').ontouchend = surveyclick1;
 	} else {
+		document.getElementById('keypic').className="";
 		document.getElementById('bd').onkeypress=surveyPressed;
 	}
 	results = new Array(newAmount);
@@ -131,6 +133,7 @@ function displayStart2() {
 	document.startImg1.src=usurvey.pic1url;
 	document.startImg2.src=usurvey.pic2url;
 	document.getElementById('softbtn').className="elementnone";
+	document.getElementById('keypic').className="elementnone";
 	document.getElementById('prac').className="pracnone";
 	document.getElementById('number2').innerHTML=usurvey.amount*2;
 	document.getElementById('start2op1').innerHTML=usurvey.op1name;
@@ -141,6 +144,7 @@ function displayStart2() {
 
 function displayResult() {
 	document.getElementById('softbtn').className="elementnone";
+	document.getElementById('keypic').className="elementnone";
 	document.getElementById('survey').className="surveynone";
 	
 	if (preview == true) {
