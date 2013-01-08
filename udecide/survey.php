@@ -169,6 +169,11 @@ require_once 'cSurvey.php';
     <img id="btn1" src="img/ekey.png" style="width: 80px; height: 80px; float: left; left: 3%; position: relative; top: 130px;" />
     <img id="btn2" src="img/ikey.png" style="width: 80px; height: 80px; float: right; right: 3%; position: relative; top: 130px;" />
     </div>
+	
+	<div id="keypic" class="elementnone">
+    <img src="img/ekey2.png" style="width: 100px; float: left; left: 3%; position: relative; top: 130px;" />
+    <img src="img/ikey2.png" style="width: 100px; float: right; right: 3%; position: relative; top: 130px;" />
+    </div>
     
     <div id="start1" class="container prepare1none">
     <table style="width: 500px; margin-left: auto; margin-right: auto;">
